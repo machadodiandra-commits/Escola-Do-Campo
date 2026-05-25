@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Biblioteca Verde | Saberes que florescem</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f6ec;
+            color: #1e2a1e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* PALETA VERDE ESCURO (mantida) */
+        :root {
+            --verde-escuro: #1e3f2f;
+            --verde-floresta: #2a5a3b;
+            --verde-selva: #3b7850;
+            --verde-destaque: #5b8c5a;
+            --verde-pastel: #d8e6da;
+            --cinza-verde: #4c5c4b;
+            --fundo-claro: #eff5ec;
+            --verde-charco: #0f2b1d;
+            --laranja-terra: #d79b4a;
+            --sombra: 0 20px 35px -12px rgba(0, 20, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* cabeçalho */
+        header {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e3f2f, #2a5a3b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--verde-floresta);
+            display: block;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e2a1e;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--verde-escuro);
+            border-bottom: 2px solid var(--verde-destaque);
+            padding-bottom: 4px;
+        }
+
+        /* HERO COM IMAGEM DE FUNDO (biblioteca sustentável) */
+        .hero {
+            background: linear-gradient(rgba(20, 45, 30, 0.7), rgba(10, 30, 18, 0.8)), 
+                        url('https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center 40%;
+            background-attachment: fixed;
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: rgba(220, 252, 231, 0.9);
+            color: #166534;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(95deg, #1e3f2f, #2a5a3b);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+            background: #143829;
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: #1e3f2f;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 2rem;
+            box-shadow: var(--sombra);
+            border: 3px solid rgba(255,255,240,0.3);
+        }
+
+        /* seções */
+        .section {
+            padding: 5rem 0;
+        }
+        .section-alt {
+            background: #ebf3e8;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--verde-escuro);
+        }
+        .section-sub {
+            text-align: center;
+            color: #4b6b56;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* cards de serviços/coleções */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .service-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            flex: 1 1 260px;
+            transition: all 0.25s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid #ddebe0;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #b9d5b3;
+            box-shadow: 0 20px 30px -12px rgba(30, 63, 47, 0.2);
+        }
+        .service-card i {
+            font-size: 2.8rem;
+            color: var(--verde-selva);
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #1d3929;
+        }
+
+        /* seção acervo verde com imagem de fundo */
+        .acervo-bg {
+            background: linear-gradient(rgba(30, 63, 47, 0.75), rgba(20, 50, 30, 0.8)), 
+                        url('https://images.pexels.com/photos/450063/pexels-photo-450063.jpeg?auto=compress&cs=tinysrgb&w=1200');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 4rem 0;
+            color: white;
+        }
+        .acervo-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        .acervo-text {
+            flex: 1;
+        }
+        .acervo-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .acervo-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        .list-check {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .list-check li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .list-check i {
+            color: #d79b4a;
+            font-size: 1.2rem;
+        }
+        .acervo-img {
+            flex: 1;
+            text-align: center;
+        }
+        .acervo-img img {
+            max-width: 100%;
+            border-radius: 2rem;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,200,0.4);
+        }
+
+        /* estatísticas verdes */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .stat {
+            text-align: center;
+            flex: 1;
+            background: white;
+            padding: 2rem 1rem;
+            border-radius: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--verde-floresta);
+        }
+        .stat h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--verde-escuro);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* depoimento com imagem de fundo (floresta e leitura) */
+        .depo-bg {
+            background: linear-gradient(rgba(20, 45, 30, 0.7), rgba(10, 30, 18, 0.8)), 
+                        url('https://images.pexels.com/photos/1030198/forest-pathway-nature-trees-1030198.jpeg?auto=compress&cs=tinysrgb&w=1200');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 4rem 0;
+            margin: 2rem 0;
+        }
+        .depo-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255, 255, 245, 0.94);
+            backdrop-filter: blur(2px);
+            padding: 2.5rem;
+            border-radius: 3rem;
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+        .depo-box i {
+            font-size: 2.5rem;
+            color: var(--verde-selva);
+        }
+        .depo-box p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            color: #1f3b2c;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* newsletter e rodapé */
+        .newsletter {
+            background: var(--verde-escuro);
+            color: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .newsletter input {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            width: 280px;
+            max-width: 70%;
+            margin-right: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .newsletter button {
+            background: var(--laranja-terra);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #1e2a1e;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .newsletter button:hover {
+            background: #c5873a;
+            transform: scale(1.02);
+        }
+
+        footer {
+            background: #0f281d;
+            color: #cfdec8;
+            padding: 3rem 0 2rem;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: #c8e6c0;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .footer-col a {
+            color: #bdd5b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .footer-col a:hover {
+            color: #e0f5d5;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2e4a3a;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .navbar {
+                flex-direction: column;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .section {
+                padding: 3rem 0;
+            }
+            .hero, .acervo-bg, .depo-bg {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <div class="logo">
+            <h1>Biblioteca<span style="color:#2a5a3b;">Verde</span></h1>
+            <span>conhecimento que floresce</span>
+        </div>
+        <div class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#acervo">Acervo</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#impacto">Impacto</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero com imagem de fundo (biblioteca sustentável) -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-leaf"></i> Espaço de conhecimento sustentável</div>
+                <h2>Onde os livros e a natureza se encontram</h2>
+                <p>Um ambiente acolhedor que incentiva a leitura, a troca de saberes e o respeito ao meio ambiente. Acervo diverso, ações culturais e um refúgio para mentes curiosas.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn-primary"><i class="fas fa-book-open"></i> Explorar acervo</a>
+                    <a href="#" class="btn-outline-light"><i class="fas fa-tree"></i> Programação cultural</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/2908984/books-shelves-library-reading-2908984.jpg?auto=compress&cs=tinysrgb&w=600" alt="Estante de livros em biblioteca aconchegante" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de serviços / diferenciais -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <div class="section-title">Espaços & Experiências</div>
+            <div class="section-sub">Mais do que livros: um ecossistema de aprendizado e sustentabilidade</div>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Jardim Literário</h3>
+                    <p>Área externa com bancos e jardim para leitura ao ar livre, integrando natureza e literatura.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Troca de Livros</h3>
+                    <p>Programa de reuso e doação de livros, estimulando o consumo consciente e o acesso à leitura.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chalkboard"></i>
+                    <h3>Oficinas Verdes</h3>
+                    <p>Atividades de escrita criativa, compostagem, horta e sustentabilidade para todas as idades.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Digital & Sustentável</h3>
+                    <p>Acervo digital com baixo impacto, e-books e audiobooks para reduzir o consumo de papel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção acervo com imagem de fundo (floresta e livros) -->
+    <section id="acervo" class="acervo-bg">
+        <div class="container acervo-flex">
+            <div class="acervo-text">
+                <h3><i class="fas fa-leaf"></i> Acervo Vivo</h3>
+                <p>Nosso catálogo reúne títulos de literatura brasileira, internacional, ciência, agroecologia, poesia e infantojuvenil. Tudo organizado com foco na diversidade e no pensamento crítico.</p>
+                <ul class="list-check">
+                    <li><i class="fas fa-check-circle"></i> Mais de 15 mil obras físicas e 5 mil digitais</li>
+                    <li><i class="fas fa-check-circle"></i> Seção especial de literatura indígena e quilombola</li>
+                    <li><i class="fas fa-check-circle"></i> Gibiteca e acervo em braile</li>
+                    <li><i class="fas fa-check-circle"></i> Empréstimo gratuito e delivery para comunidades rurais</li>
+                </ul>
+                <a href="#" class="btn-primary"><i class="fas fa-search"></i> Consultar catálogo online</a>
+            </div>
+            <div class="acervo-img">
+                <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Prateleiras com livros e plantas" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Números de impacto -->
+    <section id="impacto" class="section">
+        <div class="container">
+            <div class="section-title">Nossa pegada positiva</div>
+            <div class="section-sub">Resultados que mostram a força da leitura e da sustentabilidade</div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h4>+8.200</h4>
+                    <p>Leitores ativos cadastrados</p>
+                </div>
+                <div class="stat">
+                    <h4>5 ton</h4>
+                    <p>Livros reutilizados (não foram para aterros)</p>
+                </div>
+                <div class="stat">
+                    <h4>120+</h4>
+                    <p>Oficinas e rodas de leitura por ano</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimento com imagem de fundo (pessoa lendo na natureza) -->
+    <div class="depo-bg">
+        <div class="container">
+            <div class="depo-box">
+                <i class="fas fa-quote-left"></i>
+                <p>"A Biblioteca Verde transformou minha relação com os livros e com o meio ambiente. Além de um acervo incrível, as oficinas me ensinaram a cultivar minha própria horta e a ver a leitura como ato de cuidado com o mundo."</p>
+                <h4>— Ana Clara, frequentadora</h4>
+                <div style="color:#d79b4a; letter-spacing: 2px;">★★★★★</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter e contato -->
+    <div class="container">
+        <div class="newsletter">
+            <h3><i class="fas fa-envelope-open-text"></i> Receba novidades</h3>
+            <p>Fique por dentro dos lançamentos, eventos e dicas de leitura sustentável.</p>
+            <form action="#" style="margin-top: 1.5rem;">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer id="contato">
+    <div class="container footer-content">
+        <div class="footer-col">
+            <h4>Biblioteca Verde</h4>
+            <p>Um espaço de conhecimento, pertencimento e sustentabilidade. Aberta a todas as idades.</p>
+            <div style="margin-top: 1rem;">
+                <i class="fab fa-instagram" style="margin-right: 1rem;"></i>
+                <i class="fab fa-facebook" style="margin-right: 1rem;"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Horários</h4>
+            <p>Terça a sexta: 9h - 19h</p>
+            <p>Sábado: 10h - 16h</p>
+            <p>Domingo e segunda: fechado para manutenção do jardim</p>
+        </div>
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <a href="#"><i class="fas fa-map-marker-alt"></i> Rua das Acácias, 245 - Centro</a>
+            <a href="#"><i class="fas fa-phone"></i> (11) 3625-4499</a>
+            <a href="#"><i class="fas fa-envelope"></i> contato@bibliotecaverde.org</a>
+        </div>
+    </div>
+    <div class="container copyright">
+        <p>© 2025 Biblioteca Verde • Cultura, leitura e sustentabilidade 🌿</p>
+    </div>
+</footer>
+</body>
+</html>
